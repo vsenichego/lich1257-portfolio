@@ -8,11 +8,11 @@ import audioMenu from '@/utils/audioMenu'; // Adjust the path as needed
 
 // Map of links to display in the projects navigation.
 const links = [
-    { name: 'light', href: '/light', icon: '#', key: '', src: '/preview/1.jpg' },
-    { name: 'generative_visuals', href: '/generative', icon: '#', key: '', src: '/preview/2.jpg' },
-    { name: '3d_visuals', href: '/3d', icon: '#', key: '', src: '/preview/3.jpg' },
-    { name: 'photos', href: '/photos', icon: '#', key: '', src: '/preview/4.jpg' },
-    { name: 'collaborations', href: '/collabs', icon: '#', key: '', src: '/preview/5.jpg' },
+    { name: 'light', href: '/projects/light', icon: '#', key: '', src: '/preview/1.jpg' },
+    { name: 'generative_visuals', href: '/projects/generative', icon: '#', key: '', src: '/preview/2.jpg' },
+    { name: '3d_visuals', href: '/projects/3d', icon: '#', key: '', src: '/preview/3.jpg' },
+    { name: 'photos', href: '/projects/photos', icon: '#', key: '', src: '/preview/4.jpg' },
+    { name: 'collaborations', href: '/projects/collabs', icon: '#', key: '', src: '/preview/5.jpg' },
 ];
 
 export default function NavLinks() {

@@ -1,16 +1,17 @@
 // this code is partially taken from the website https://blog.olivierlarose.com/tutorials/3d-cube
 // adapted for the current project
+
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-// import { TextureLoader } from 'three/src/loaders/TextureLoader';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
 import { motion } from 'framer-motion-3d';
-import * as THREE from 'three'
+import * as THREE from 'three';
+// import { TextureLoader } from 'three/src/loaders/TextureLoader'; Почитать про Лоадеры и подумать нужны ли они здесь
 
-export default function index() {
+export default function page() {
 
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -120,6 +121,20 @@ function Cube({ progress }) {
         { position: [-1.5, 0, 0], rotation: [0, -Math.PI / 2, 0] }, // Left
     ];
 
+    function handleHoverOverCube(e) {
+        setIsHovered(true);
+        e.object.material.opacity = 0.2; // Change opacity to make it visible
+    }
+
+    function handleHoverOutCube(e) {
+        setIsHovered(false);
+        e.object.material.opacity = 0; // Make it transparent
+    }
+
+    function handleClickOnSide(idx) {
+        alert(`Clicked side ${idx}`)
+    }
+
     return (
         // <motion.mesh ref={mesh} rotation-y={progress} rotation-x={progress}>
         //     {/* args: width, height, depth */}
@@ -147,16 +162,9 @@ function Cube({ progress }) {
                     key={idx}
                     position={side.position}
                     rotation={side.rotation}
-                    onPointerOver={(e) => {
-                        setIsHovered(true);
-                        e.object.material.opacity = 0.2; // Change opacity to make it visible
-                    }}
-                    onPointerOut={(e) => {
-                        setIsHovered(false);
-                        e.object.material.opacity = 0; // Make it transparent
-                    }}
-                    onClick={() => alert(`Clicked side ${idx}`)}
-                >
+                    onPointerOver={handleHoverOverCube}
+                    onPointerOut={handleHoverOutCube}
+                    onClick={() => handleClickOnSide(idx)}>
                     <planeGeometry args={[3, 3]} />
                     <meshBasicMaterial color="blue" transparent opacity={0} />
                 </mesh>
