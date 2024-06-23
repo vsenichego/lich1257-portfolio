@@ -55,7 +55,7 @@ function Cube({ progress }) {
             mesh.current.rotation.y += delta * 0.25;
             mesh.current.rotation.z += delta * 0.25;
         }
-    }); 
+    });
 
     const manageMouseMove = (e) => {
         const { innerWidth, innerHeight } = window;

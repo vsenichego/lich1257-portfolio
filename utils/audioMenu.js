@@ -10,7 +10,7 @@ export default function audioMenu() {
         return () => {
             const navLinks = document.querySelectorAll('a');
             navLinks.forEach((link) => {
-                link.removeEventListener('mouseenter', () => {});
+                link.removeEventListener('pointerenter', () => {});
             });
         };
     }, []);
@@ -32,7 +32,7 @@ export default function audioMenu() {
         });
 
         navLinks.forEach((link) => {
-            link.addEventListener('mouseenter', () => {
+            link.addEventListener('pointerenter', () => {
                 const beeperIndex = link.dataset.beeper;
                 const audio = document.getElementById('beep' + beeperIndex);
                 if (audio) {

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 // import { usePathname } from 'next/navigation';
 // import clsx from 'clsx';
+import audioMenu from '@/utils/audioMenu'; // Adjust the path as needed
 
 // Map of links to display in the projects navigation.
 const links = [
@@ -17,31 +18,35 @@ const links = [
 export default function NavLinks() {
     // const pathname = usePathname();
     const [currentImage, setCurrentImage] = useState('/preview/test.jpg');
+    audioMenu()
 
     return (
         <>
-        <ul className="text-[35px] my-auto ml-[78px]" >
-            {links.map((link) => {
-                const linkIcon = link.icon;
-                return (
-                    
-                    <li className="hover:text-[#8360f8]">
-                        <Link
-                            key={link.src}
-                            href={link.href}
-                            className="cursor-pointer hover:text-blue-500"
-                            onPointerEnter={() => setCurrentImage(link.src)}
-                            onPointerLeave={() => setCurrentImage('/preview/test.jpg')}
-                        >
-                            <div className='flex'>
-                                <span>{linkIcon}&nbsp;</span>
-                                <p className="">{link.name}</p>
-                            </div>
-                        </Link>
-                    </li>
-                )
-            })}
-             </ul>
+            <audio id="beep" controls preload="auto" style={{ display: 'none' }}>
+                <source src="/audio/menu2.wav" />
+            </audio>
+            <ul className="text-[35px] my-auto ml-[78px]" >
+                {links.map((link) => {
+                    const linkIcon = link.icon;
+                    return (
+
+                        <li className="hover:text-[#8360f8]">
+                            <Link
+                                key={link.src}
+                                href={link.href}
+                                className="cursor-pointer hover:text-blue-500"
+                                onPointerEnter={() => setCurrentImage(link.src)}
+                                onPointerLeave={() => setCurrentImage('/preview/test.jpg')}
+                            >
+                                <div className='flex'>
+                                    <span>{linkIcon}&nbsp;</span>
+                                    <p className="">{link.name}</p>
+                                </div>
+                            </Link>
+                        </li>
+                    )
+                })}
+            </ul>
             <div className="my-auto">
                 <Image
                     src={currentImage}
