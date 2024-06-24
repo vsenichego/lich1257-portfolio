@@ -4,28 +4,23 @@ import Image from 'next/image';
 import { useState } from 'react';
 // import { usePathname } from 'next/navigation';
 // import clsx from 'clsx';
-import audioMenu from '@/utils/audioMenu'; // Adjust the path as needed
+import audioMenu from '@/lib/audioMenu'; // Adjust the path as needed
+import { projectsLinks } from '@/lib/data';
 
-// Map of links to display in the projects navigation.
-const links = [
-    { name: 'light', href: '/projects/light', icon: '#', key: '', src: '/preview/1.jpg' },
-    { name: 'generative_visuals', href: '/projects/generative', icon: '#', key: '', src: '/preview/2.jpg' },
-    { name: '3d_visuals', href: '/projects/3d', icon: '#', key: '', src: '/preview/3.jpg' },
-    { name: 'photos', href: '/projects/photos', icon: '#', key: '', src: '/preview/4.jpg' },
-    { name: 'collaborations', href: '/projects/collabs', icon: '#', key: '', src: '/preview/5.jpg' },
-];
 
 export default function NavLinks() {
     // const pathname = usePathname();
     const [currentImage, setCurrentImage] = useState('/preview/test.jpg');
+    const links = projectsLinks;
+
     audioMenu()
 
     return (
         <>
-            <audio id="beep" controls preload="auto" style={{ display: 'none' }}>
+            <audio id="beep" preload="auto" style={{ display: 'none' }}>
                 <source src="/audio/menu2.wav" />
             </audio>
-            <ul className="text-[35px] my-auto ml-[78px]" >
+            <ul className="text-[48px] my-auto ml-[70px] mr-[30px]">
                 {links.map((link) => {
                     const linkIcon = link.icon;
                     return (
@@ -52,7 +47,7 @@ export default function NavLinks() {
                     src={currentImage}
                     width={500}
                     height={500}
-                    className="w-[511px] h-[503px] mr-[78px]"
+                    className="w-[550px] h-[550px] mr-[65px]"
                     alt="section logo"
                 />
             </div>

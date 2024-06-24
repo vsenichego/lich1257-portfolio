@@ -1,7 +1,6 @@
 import card from '/public/assets/card-large.jpg'
 import Image from 'next/image'
 
-
 export default function About() {
     return (
         <>
