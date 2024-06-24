@@ -10,6 +10,7 @@ const Light = () => {
         console.log('About component mounted');
         console.log('list of projects:');
         console.log(projects);
+        console.log(projects.img);
     }, []);
 
     const [selectedProjectIndex, setSelectedProjectIndex] = useState();
@@ -26,7 +27,6 @@ const Light = () => {
                 </div> */}
                 <ul className="flex w-full h-full">
                     {projects.map((project, index) => {
-                        const title = project.title
                         return (
                             <li
                                 key={index}
@@ -36,14 +36,14 @@ const Light = () => {
                                     boxShadow: "5px 5px 5px rgba(0, 0, 255, .3)"
                                 }}
                             >
-
+                                <h2>{project.title}</h2>
                                 <button onClick={() => toggleDescription(index)} className="relative z-10 p-2">
                                     {selectedProjectIndex === index ? '✕' : 'description'}
                                 </button>
                                 {selectedProjectIndex === index && (
                                     <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 p-4 rounded z-0">
-                                        <p className="text-white">{project.textEn}</p>
-                                        <p className="text-white">{project.textRu}</p>
+                                        <p className="text-white mt-[40px] mb-10 w-1/2 text-[20px]">{project.textEn}</p>
+                                        <p className="text-white w-1/2 text-[20px]">{project.textRu}</p>
                                     </div>
                                 )}
                             </li>
