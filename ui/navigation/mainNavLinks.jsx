@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { mainLinks } from '@/lib/data';
 import audioMenu from '@/lib/audioMenu';
 
-export default function NavLinks() {
+export default function MainNavLinks() {
     const links = mainLinks;
 
     audioMenu()

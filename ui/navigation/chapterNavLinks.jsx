@@ -5,13 +5,13 @@ import { useState } from 'react';
 // import { usePathname } from 'next/navigation';
 // import clsx from 'clsx';
 import audioMenu from '@/lib/audioMenu'; // Adjust the path as needed
-import { projectsLinks } from '@/lib/data';
+import { chaptersLinks } from '@/lib/data';
 
 
-export default function NavLinks() {
+export default function ChapterNavLinks() {
     // const pathname = usePathname();
     const [currentImage, setCurrentImage] = useState('/preview/test.jpg');
-    const links = projectsLinks;
+    const links = chaptersLinks;
 
     audioMenu()
 
