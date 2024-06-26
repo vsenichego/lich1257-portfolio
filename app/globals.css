@@ -17,6 +17,9 @@
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
   color: rgb(var(--foreground-rgb));
   background: url('../public/assets/bg.png') no-repeat center center fixed;
   background-size: cover;
@@ -26,4 +29,43 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+
+
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card {
+  width: 600px;  /* Adjust width as necessary */
+  height: 600px;  /* Adjust height as necessary */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 5px 5px 5px rgba(0, 0, 255, 0.3);
+
+}
+
+.project-card h2 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  z-index: 10;
+}
+
+.project-card button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 10;
 }

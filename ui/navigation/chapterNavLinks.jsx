@@ -20,14 +20,13 @@ export default function ChapterNavLinks() {
             <audio id="beep" preload="auto" style={{ display: 'none' }}>
                 <source src="/audio/menu2.wav" />
             </audio>
-            <ul className="text-[48px] my-auto ml-[70px] mr-[30px]">
+            <ul className="my-auto ml-[70px] mr-[30px] text-[48px]">
                 {links.map((link) => {
                     const linkIcon = link.icon;
                     return (
 
-                        <li className="hover:text-[#8360f8]">
+                        <li className="hover:text-[#8360f8]"  key={link.src}>
                             <Link
-                                key={link.src}
                                 href={link.href}
                                 className="cursor-pointer hover:text-blue-500"
                                 onPointerEnter={() => setCurrentImage(link.src)}
@@ -48,7 +47,7 @@ export default function ChapterNavLinks() {
                     width={500}
                     height={500}
                     className="w-[550px] h-[550px] mr-[65px]"
-                    alt="section logo"
+                    alt="chapter logo"
                 />
             </div>
         </>

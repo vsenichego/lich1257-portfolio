@@ -35,5 +35,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#some assets
+# some assets
 /public
+
+# drafts
+/ui/projects/swiper.jsx

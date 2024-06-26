@@ -1,6 +1,4 @@
 import "./globals.css";
-// import { exo } from '@/lib/fonts'
-// import { clacon2 } from '@/lib/fonts'
 import { pixeloperator } from '@/lib/fonts'
 
 export const metadata = {

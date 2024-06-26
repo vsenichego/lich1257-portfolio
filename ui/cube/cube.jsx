@@ -22,7 +22,7 @@ export default function page() {
     const smoothProgress = useSpring(progress, { damping: 20 });
 
     return (
-        <div ref={container} className="">
+        <div ref={container}>
             <div className="h-screen">
                 <Canvas>
                     <OrbitControls enableZoom={true} enablePan={false} />
