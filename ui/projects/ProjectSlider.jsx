@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Mousewheel, FreeMode } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import ProjectCard from './ProjectCard';
@@ -61,12 +61,14 @@ const ProjectSlider = ({ projects }) => {  // в качестве пропса �
             )}
             <Swiper
                 ref={swiperRef}
-                modules={[Autoplay]}
+                modules={[Autoplay, Mousewheel, FreeMode]}
                 spaceBetween={30}
                 slidesPerView={3}
                 autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
                 speed={2000}
                 loop={true}
+                mousewheel={{ enabled: true, sensitivity: 0.75 }}
+                freeMode={{ enabled: true, momentum: true, momentumBounce: false, momentumRatio: 0.75, sticky: true}}
                 className="m-auto"
             >
                 {projects.map((project, index) => (  //здесь projects это один из массивов light, threed, generative  и т.д., для каждого элемента массива я создаю Слайд (компонент из либы swiper.js)
@@ -82,16 +84,16 @@ const ProjectSlider = ({ projects }) => {  // в качестве пропса �
                 ))}
             </Swiper>
             {selectedProjectIndex !== null && (
-                <div className="fixed inset-0 z-20 bg-black bg-opacity-80 flex justify-center items-center">
-                    <div className="bg-white p-10 rounded-lg w-4/5 h-4/5 overflow-auto relative">
+                <div className="fixed inset-0 z-20 bg-black bg-opacity-40 flex justify-center items-center">
+                    <div className="bg-black bg-opacity-75 p-10 rounded-lg w-full h-full overflow-auto relative">
                         <button
-                            className="absolute top-5 right-5 text-black"
+                            className="absolute top-5 right-5 text-white"
                             onClick={closeDescription}
                         >
                             ✕
                         </button>
-                        <h2 className="text-black text-2xl mb-4">{projects[selectedProjectIndex].title}</h2>
-                        <p className="text-black text-xl mb-4">
+                        <h2 className="text-white text-2xl mb-4">{projects[selectedProjectIndex].title}</h2>
+                        <p className="text-white text-xl mb-4">
                             {language === 'en'
                                 ? projects[selectedProjectIndex].textEn
                                 : projects[selectedProjectIndex].textRu}

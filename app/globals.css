@@ -31,9 +31,6 @@ body {
   }
 }
 
-
-
-
 .swiper-slide {
   display: flex;
   justify-content: center;
@@ -41,9 +38,8 @@ body {
 }
 
 .project-card {
-  width: 600px;  /* Adjust width as necessary */
-  height: 600px;  /* Adjust height as necessary */
-  display: flex;
+  width: 600px;
+  height: 600px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -52,7 +48,6 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 5px 5px 5px rgba(0, 0, 255, 0.3);
-
 }
 
 .project-card h2 {

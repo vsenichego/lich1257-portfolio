@@ -1,5 +1,5 @@
 import "./globals.css";
-import { pixeloperator } from '@/lib/fonts'
+import { pixeloperator, freepixel } from '@/lib/fonts'
 
 export const metadata = {
   title: "LICH 1257",
@@ -9,7 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={pixeloperator.className}>{children}</body>
+      <body className={freepixel.className}>{children}</body>
     </html>
   );
 }
