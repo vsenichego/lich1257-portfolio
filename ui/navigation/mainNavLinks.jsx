@@ -1,14 +1,23 @@
 'use client'
+import React, { useState } from 'react';
 import Link from 'next/link';
-// import { usePathname } from 'next/navigation';
-// import clsx from 'clsx';
-import { mainLinks } from '@/lib/data';
+import { mainLinks } from '@/lib/dataLinks';
 import audioMenu from '@/lib/audioMenu';
+import ContactsModal from '@/ui/navigation/ContactsModal';
 
 export default function MainNavLinks() {
     const links = mainLinks;
+    const [showModal, setShowModal] = useState(false);
 
     audioMenu()
+
+    const openModal = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+    };
 
     return (
         <>
@@ -19,16 +28,20 @@ export default function MainNavLinks() {
                 {links.map((link) => {
                     return (
                         <li className="mr-[100px] last:mb-[75px] pb-[5px] last:pb-0 hover:text-[#00FF00]" key={link.key}>
-                            <Link
-                                href={link.href}
-                                className="navlink"
-                            >
-                                <p className="">{link.name}</p>
-                            </Link>
+                            {link.name === 'contact' ? (
+                                <Link className="navlink" onClick={openModal} href="">
+                                    <p>{link.name}</p>
+                                </Link>
+                            ) : (
+                                <Link href={link.href} className="navlink">
+                                    <p>{link.name}</p>
+                                </Link>
+                            )}
                         </li>
                     )
                 })}
             </ul>
+            {showModal && <ContactsModal onClose={closeModal} />}
         </>
     )
 }

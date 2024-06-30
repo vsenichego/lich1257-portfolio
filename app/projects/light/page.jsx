@@ -1,5 +1,6 @@
 'use client'
-import { projects, chaptersLinks } from '@/lib/data.js';
+import { projects } from '@/lib/data.js';
+import { chaptersLinks } from '@/lib/dataLinks.js';
 import ProjectSlider from '@/ui/projects/ProjectSlider';
 
 const Light = () => {

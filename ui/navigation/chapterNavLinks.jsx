@@ -5,7 +5,7 @@ import { useState } from 'react';
 // import { usePathname } from 'next/navigation';
 // import clsx from 'clsx';
 import audioMenu from '@/lib/audioMenu'; // Adjust the path as needed
-import { chaptersLinks } from '@/lib/data';
+import { chaptersLinks } from '@/lib/dataLinks';
 
 
 export default function ChapterNavLinks() {

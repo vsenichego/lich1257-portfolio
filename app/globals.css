@@ -47,7 +47,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 5px 5px 5px rgba(0, 0, 255, 0.3);
+  box-shadow: 15px 15px 15px 15px  rgba(199, 199, 199, 0.486);
 }
 
 .project-card h2 {
