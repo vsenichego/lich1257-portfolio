@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 
-export default function audioMenu() {
+export default function AudioMenu() {
     useEffect(() => {
         audioHover();
 
         // Cleanup function to remove event listeners
         return () => {
-            const navLinks = document.querySelectorAll('a');
+            const navLinks = document.querySelectorAll('.navlink');
             navLinks.forEach((link) => {
                 link.removeEventListener('pointerenter', () => {});
             });
@@ -14,7 +14,7 @@ export default function audioMenu() {
     }, []);
 
     function audioHover() {
-        const navLinks = document.querySelectorAll('a');
+        const navLinks = document.querySelectorAll('.navlink');
         const originalBeep = document.getElementById('beep');
 
         if (!originalBeep) return; // Check if the beep element exists
@@ -45,4 +45,12 @@ export default function audioMenu() {
 
         originalBeep.id = 'beep0';
     }
+
+    return (
+        <>
+            <audio id="beep" preload="auto" style={{ display: 'none' }}>
+                <source src="/audio/menu1.wav" />
+            </audio>
+        </>
+    )
 }

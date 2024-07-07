@@ -64,3 +64,39 @@ body {
   left: 10px;
   z-index: 10;
 }
+
+/* Dropdown menu styling */
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ticking typewriter effect */
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(13, end) forwards;
+}
+
+.blink-caret {
+  animation: blink-caret 0.7s steps(20, start) forwards;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: #ff0202; }
+  100% { border-color: #ff0000; }
+}
+
+.navlink:hover {
+  color: #00FF00;
+}
+
+.mainNavItem {
+  margin-left: 30px;
+}
