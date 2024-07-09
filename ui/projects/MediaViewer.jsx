@@ -1,12 +1,9 @@
-import React from 'react';
-
-const MediaViewer = ({ type, src, onClick }) => {
+export default function MediaViewer({ type, src, onClick }) {
     switch (type) {
         case 'video':
             return (
                 <video controls className="w-full h-auto" onClick={onClick}>
                     <source src={src} type="video/mp4" />
-                    Your browser does not support the video tag.
                 </video>
             );
         case 'youtube':
@@ -14,7 +11,6 @@ const MediaViewer = ({ type, src, onClick }) => {
                 <iframe
                     className="w-full h-full"
                     src={src}
-                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     title="YouTube video"
@@ -33,5 +29,3 @@ const MediaViewer = ({ type, src, onClick }) => {
             );
     }
 };
-
-export default MediaViewer;

@@ -1,7 +1,6 @@
-import React from 'react';
 import MediaViewer from './MediaViewer';
 
-const MediaModal = ({ src, type, onClose }) => {
+export default function MediaModal({ src, type, onClose }) {
     return (
         <div
             className="fixed inset-0 z-50 bg-black bg-opacity-75 flex justify-center items-center"
@@ -13,5 +12,3 @@ const MediaModal = ({ src, type, onClose }) => {
         </div>
     );
 };
-
-export default MediaModal;
