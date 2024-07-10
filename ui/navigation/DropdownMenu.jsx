@@ -11,7 +11,7 @@ export default function DropdownMenu({ linkName, links }) {
 
     return (
         <li className="ml-[30px]">
-            <button className="navlink audioMenuMain" onClick={toggleDropdown}>
+            <button className=" navlink audioMenu1" onClick={toggleDropdown}>
                 {linkName}
             </button>
             {showDropdown && (
@@ -19,7 +19,7 @@ export default function DropdownMenu({ linkName, links }) {
                     <AudioMenu />
                     {links.map((link) => (
                         <li key={link.key} className="blink-caret">
-                            <Link href={link.href} className="navlink audioMenuCat typing-animation">
+                            <Link href={link.href} className="navlink audioMenu2 typing-animation">
                                 {link.name}
                             </Link>
                         </li>

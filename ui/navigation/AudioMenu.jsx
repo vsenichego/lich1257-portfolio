@@ -5,7 +5,7 @@ export default function AudioMenu() {
         audioHover();
 
         return () => {
-            const navLinks = document.querySelectorAll('.audioMenu1, .audioMenu2');
+            const navLinks = document.querySelectorAll('.audioMenuMain, .audioMenuCat');
             navLinks.forEach((link) => {
                 link.removeEventListener('pointerenter', () => {});
             });
