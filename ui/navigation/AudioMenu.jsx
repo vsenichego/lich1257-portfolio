@@ -16,7 +16,7 @@ export default function AudioMenu() {
         const navLinks = document.querySelectorAll('.audioMenuMain, .audioMenuCat');
 
         navLinks.forEach((link, i) => {
-            const isNavLink = link.classList.contains('audioMenu1');
+            const isNavLink = link.classList.contains('audioMenuCat');
             const audioId = `beep-${isNavLink ? 'main' : 'cat'}${i}`;
 
             if (!document.getElementById(audioId)) {
@@ -24,7 +24,7 @@ export default function AudioMenu() {
                 audio.id = audioId;
                 audio.preload = 'auto';
                 audio.style.display = 'none';
-                audio.volume = 0.3;
+                audio.volume = 0.25;
                 
                 const source = document.createElement('source');
                 source.src = isNavLink ? '/audio/menu1.wav' : '/audio/menu2.wav';
