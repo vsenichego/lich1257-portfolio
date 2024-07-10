@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link';
-import { mainLinks, chaptersLinks, contactLinks } from '@/lib/dataLinks';
+import { mainLinks, categoriesLinks, contactLinks } from '@/lib/dataLinks';
 import DropdownMenu from '@/ui/navigation/DropdownMenu';
 import AudioMenu from '@/ui/navigation/AudioMenu';
 
@@ -13,7 +13,7 @@ export default function MainNavLinks() {
             <nav>
                 <ul className="flex flex-row mr-[100px] mt-[10px] text-[35px]">
                     <li className="" key={links[0].key}>
-                        <Link href={links[0].href} className="navlink">
+                        <Link href={links[0].href} className="navlink audioMenuMain">
                             {links[0].name}
                         </Link>
                     </li>
@@ -32,7 +32,7 @@ export default function MainNavLinks() {
                                 <DropdownMenu
                                     key={link.key}
                                     linkName={link.name}
-                                    links={chaptersLinks}
+                                    links={categoriesLinks}
                                 />
                             );
                         }

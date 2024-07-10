@@ -4,9 +4,8 @@ export default function AudioMenu() {
     useEffect(() => {
         audioHover();
 
-        // Cleanup function to remove event listeners
         return () => {
-            const navLinks = document.querySelectorAll('.navlink');
+            const navLinks = document.querySelectorAll('.audioMenu1, .audioMenu2');
             navLinks.forEach((link) => {
                 link.removeEventListener('pointerenter', () => {});
             });
@@ -14,43 +13,38 @@ export default function AudioMenu() {
     }, []);
 
     function audioHover() {
-        const navLinks = document.querySelectorAll('.navlink');
-        const originalBeep = document.getElementById('beep');
-
-        if (!originalBeep) return; // Check if the beep element exists
-
-        // Set the initial volume for the original beep element
-        originalBeep.volume = 0.5; // Adjust this value to make the sound quieter
+        const navLinks = document.querySelectorAll('.audioMenuMain, .audioMenuCat');
 
         navLinks.forEach((link, i) => {
-            if (i !== 0) {
-                const clonedBeep = originalBeep.cloneNode(true);
-                clonedBeep.id = 'beep' + i;
-                // Set the volume for the cloned beep elements
-                clonedBeep.volume = 0.5; // Adjust this value to make the sound quieter
-                link.parentNode.appendChild(clonedBeep);
+            const isNavLink = link.classList.contains('audioMenu1');
+            const audioId = `beep-${isNavLink ? 'main' : 'cat'}${i}`;
+
+            if (!document.getElementById(audioId)) {
+                const audio = document.createElement('audio');
+                audio.id = audioId;
+                audio.preload = 'auto';
+                audio.style.display = 'none';
+                audio.volume = 0.3;
+                
+                const source = document.createElement('source');
+                source.src = isNavLink ? '/audio/menu1.wav' : '/audio/menu2.wav';
+                audio.appendChild(source);
+
+                document.body.appendChild(audio);
             }
-            link.dataset.beeper = i;
+
+            link.dataset.beeper = audioId;
         });
 
         navLinks.forEach((link) => {
             link.addEventListener('pointerenter', () => {
-                const beeperIndex = link.dataset.beeper;
-                const audio = document.getElementById('beep' + beeperIndex);
+                const audio = document.getElementById(link.dataset.beeper);
                 if (audio) {
                     audio.play();
                 }
             });
         });
-
-        originalBeep.id = 'beep0';
     }
 
-    return (
-        <>
-            <audio id="beep" preload="auto" style={{ display: 'none' }}>
-                <source src="/audio/menu1.wav" />
-            </audio>
-        </>
-    )
+    return null;
 }

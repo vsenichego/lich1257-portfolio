@@ -1,5 +1,6 @@
 import card from '/public/assets/card-large.jpg'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function About() {
     return (
@@ -11,7 +12,7 @@ export default function About() {
                         backgroundImage: `url(${card.src})`
                     }}
                 >
-                    <a href="/">
+                    <Link href="/">
                         <Image
                             src="/assets/logo.svg"
                             width={107}
@@ -19,7 +20,7 @@ export default function About() {
                             alt="Logo picture"
                             className="absolute top-[30px] left-[45px]"
                         />
-                    </a>
+                    </Link>
                     <Image
                         src="/assets/avatar.jpg"
                         width={369}

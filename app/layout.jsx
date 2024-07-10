@@ -1,5 +1,6 @@
 import "./globals.css";
-import { pixeloperator, freepixel } from '@/lib/fonts'
+import  './layout.css'
+import { freepixel } from '@/lib/fonts'
 
 export const metadata = {
   title: "LICH 1257",
@@ -9,7 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={freepixel.className}>{children}</body>
+      <body className={freepixel.className}>{children}
+        <video autoPlay muted loop className="backgroundVideo">
+          <source src="/assets/bg2.mp4" type="video/mp4" />
+        </video>
+      </body>
     </html>
   );
 }

@@ -63,15 +63,15 @@ const ProjectSlider = ({ projects }) => {
                 modules={[Autoplay, Mousewheel, FreeMode]}
                 spaceBetween={30}
                 slidesPerView={3}
-                autoplay={{ delay: 0, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                autoplay={{ delay: 0, disableOnInteraction: true, pauseOnMouseEnter: true }}
                 speed={5000}
                 loop={true}
-                mousewheel={{ enabled: true, sensitivity: 0.75 }}
-                freeMode={{ enabled: true, momentum: true, momentumBounce: false, momentumRatio: 0.75, sticky: true}}
+                mousewheel={{ enabled: true, sensitivity: 1.75 }}
+                freeMode={{ enabled: true, minimumVelocity: 0.02, momentum: false, momentumBounce: false, momentumRatio: 0.75, sticky: true }}
                 className="m-auto"
             >
                 {projects.map((project, index) => (
-                    <SwiperSlide key={index}>
+                    <SwiperSlide key={index} className='border'>
                         <ProjectCard
                             project={project}
                             index={index}
@@ -88,19 +88,6 @@ const ProjectSlider = ({ projects }) => {
                     language={language}
                     toggleLanguage={toggleLanguage}
                 />
-            )}
-            {selectedProjectIndex !== null && !isGalleryOpen && (
-                <div className="fixed inset-0 z-20 bg-black bg-opacity-40 flex justify-center items-center">
-                    <div className="bg-black bg-opacity-75 p-10 rounded-lg w-full h-full overflow-auto relative">
-
-                        <h2 className="text-white text-2xl mb-4">{projects[selectedProjectIndex].title}</h2>
-                        <p className="text-white text-xl mb-4">
-                            {language === 'en'
-                                ? projects[selectedProjectIndex].textEn
-                                : projects[selectedProjectIndex].textRu}
-                        </p>
-                    </div>
-                </div>
             )}
         </>
     );
