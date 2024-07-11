@@ -7,7 +7,14 @@ module.exports = {
     "./ui/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      // backgroundImage: {
+      //   'main-bg-texture': "url('/public/bg.png')"
+      // },
+      // fontFamily: {
+      //   sans: ['var(--font-exo)'],
+      // }
+    },
   },
   plugins: [],
 };
