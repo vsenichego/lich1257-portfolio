@@ -1,11 +1,17 @@
 'use client'
+import { useState } from 'react';
 import Link from 'next/link';
-import { mainLinks, categoriesLinks, contactLinks } from '@/lib/dataLinks';
+import { mainLinks, categoryLinks, contactLinks } from '@/lib/dataLinks';
 import DropdownMenu from '@/ui/navigation/DropdownMenu';
 import AudioMenu from '@/ui/navigation/AudioMenu';
 
 export default function MainNavLinks() {
     const links = mainLinks;
+    const [openDropdown, setOpenDropdown] = useState(null);
+
+    const handleToggle = (menu) => {
+        setOpenDropdown((prev) => (prev === menu ? null : menu));
+    };
 
     return (
         <>
@@ -24,6 +30,9 @@ export default function MainNavLinks() {
                                     key={link.key}
                                     linkName={link.name}
                                     links={contactLinks}
+                                    isOpen={openDropdown === 'contact'}
+                                    onToggle={() => handleToggle('contact')}
+                                    targetBlank={true}
                                 />
                             );
                         }
@@ -32,7 +41,10 @@ export default function MainNavLinks() {
                                 <DropdownMenu
                                     key={link.key}
                                     linkName={link.name}
-                                    links={categoriesLinks}
+                                    links={categoryLinks}
+                                    isOpen={openDropdown === 'projects'}
+                                    onToggle={() => handleToggle('projects')}
+                                    targetBlank={false}
                                 />
                             );
                         }

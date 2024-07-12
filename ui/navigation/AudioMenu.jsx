@@ -16,7 +16,7 @@ export default function AudioMenu() {
         const navLinks = document.querySelectorAll('.audioMenuMain, .audioMenuCat');
 
         navLinks.forEach((link, i) => {
-            const isNavLink = link.classList.contains('audioMenuCat');
+            const isNavLink = link.classList.contains('audioMenuMain');
             const audioId = `beep-${isNavLink ? 'main' : 'cat'}${i}`;
 
             if (!document.getElementById(audioId)) {
