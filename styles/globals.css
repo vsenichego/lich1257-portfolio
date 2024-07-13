@@ -8,6 +8,26 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #888;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -25,21 +45,8 @@ body {
   background-size: cover;
 }
 
-.project-card {
-  width: 600px;
-  height: 600px;
-  /* box-shadow: 15px 15px 15px 15px  rgba(199, 199, 199, 0.486); */
-}
-
-.project-card h2 {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  color: white;
-}
-
 .navlink:hover {
-  color: #00FF00;
+  color: #00ff00;
 }
 
 .navlink-cat:hover {

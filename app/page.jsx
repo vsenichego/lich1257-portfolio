@@ -3,11 +3,11 @@ import MainNavLinks from '@/ui/navigation/MainNavLinks'
 
 export default function Home() {
   return (
-    <main className="w-full h-full m-auto">
+    <div className="w-full h-full">
       <Cube />
-      <div className="absolute top-0 right-0 z-50">
+      <div className="absolute top-0 right-0">
         <MainNavLinks />
       </div>
-    </main>
+    </div>
   );
 }

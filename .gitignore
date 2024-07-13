@@ -4,6 +4,9 @@
 # next.js
 /.next/
 
+#
+.eslintrc.json
+
 # production
 /build
 
@@ -12,3 +15,4 @@
 
 # drafts
 /ui/projects/swiper.jsx
+/ui/skeletons.jsx

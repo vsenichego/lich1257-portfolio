@@ -1,5 +1,5 @@
-import "./globals.css";
-import  './layout.css'
+import "@/styles/globals.css";
+import  '@/styles/layout.css'
 import { freepixel } from '@/lib/fonts'
 
 export const metadata = {
@@ -11,9 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={freepixel.className}>{children}
-        <video autoPlay muted loop className="backgroundVideo">
+        {/* <video autoPlay muted loop className="backgroundVideo">
           <source src="/assets/bg2.mp4" type="video/mp4" />
-        </video>
+        </video> */}
       </body>
     </html>
   );

@@ -1,18 +1,15 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Mousewheel, FreeMode } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import ProjectCard from './ProjectCard';
+import { useState, useRef } from 'react';
+import useSwiperUtils from '@/lib/useSwiperUtils';
 import ProjectGallery from './ProjectGallery';
+import '@/styles/slider.css';
+
 
 const ProjectSlider = ({ projects }) => {
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
     const [language, setLanguage] = useState('en');
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
     const swiperRef = useRef(null);
-
 
     const openGallery = (index) => {
         setIsGalleryOpen(true);
@@ -28,59 +25,25 @@ const ProjectSlider = ({ projects }) => {
         setLanguage((currentLanguage) => (currentLanguage === 'en' ? 'ru' : 'en'));
     };
 
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (event.key === 'Escape') {
-                closeDescription();
-                closeGallery();
-            }
-        };
-
-        if (selectedProjectIndex !== null || isGalleryOpen) {
-            document.addEventListener('keydown', handleKeyDown);
-        } else {
-            document.removeEventListener('keydown', handleKeyDown);
-        }
-
-        if (swiperRef.current) {
-            const swiperInstance = swiperRef.current.swiper;
-            if (selectedProjectIndex !== null) {
-                swiperInstance.autoplay.stop();
-            } else {
-                swiperInstance.autoplay.start();
-            }
-        }
-
-        return () => {
-            document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, [selectedProjectIndex, isGalleryOpen]);
+    useSwiperUtils(swiperRef, selectedProjectIndex, isGalleryOpen, closeGallery)
 
     return (
         <>
-            <Swiper
-                ref={swiperRef}
-                modules={[Autoplay, Mousewheel, FreeMode]}
-                spaceBetween={30}
-                slidesPerView={3}
-                autoplay={{ delay: 0, disableOnInteraction: true, pauseOnMouseEnter: true }}
-                speed={5000}
-                loop={true}
-                mousewheel={{ enabled: true, sensitivity: 1.75 }}
-                freeMode={{ enabled: true, minimumVelocity: 0.02, momentum: false, momentumBounce: false, momentumRatio: 0.75, sticky: true }}
-                className="m-auto"
-            >
+            <swiper-container ref={swiperRef} init="false" class="swiper-container">
                 {projects.map((project, index) => (
-                    <SwiperSlide key={index} className='border'>
-                        <ProjectCard
-                            project={project}
-                            index={index}
-                            selectedProjectIndex={selectedProjectIndex}
-                            openGallery={openGallery}
-                        />
-                    </SwiperSlide>
+                    <swiper-slide key={index} class="swiper-slide">
+                        <div
+                            className="project-card relative w-[600px] h-[600px] max-w-[250px] max-h-[400px] 2xl:max-w-[700px] 2xl:max-h-[700px] xl:max-w-[600px] xl:max-h-[600px] lg:max-w-[500px] lg:max-h-[500px] md:max-w-[400px] md:max-h-[400px] sm:max-w-[300px] sm:max-h-[300px] bg-cover bg-center bg-no-repeat cursor-pointer"
+                            style={{
+                                backgroundImage: `url(${project.img})`,
+                            }}
+                            onClick={() => openGallery(index)}
+                        >
+                            <h2 className="absolute top-2 left-2 h-fit bg-black bg-opacity-40 p-2 rounded hover:bg-green-700 z-10">{project.title}</h2>
+                        </div>
+                    </swiper-slide>
                 ))}
-            </Swiper>
+            </swiper-container>
             {isGalleryOpen && selectedProjectIndex !== null && (
                 <ProjectGallery
                     project={projects[selectedProjectIndex]}

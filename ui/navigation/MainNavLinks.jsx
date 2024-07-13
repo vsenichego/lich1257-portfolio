@@ -18,7 +18,7 @@ export default function MainNavLinks() {
             <AudioMenu />
             <nav>
                 <ul className="flex flex-row mr-[100px] mt-[10px] text-[35px]">
-                    <li className="" key={links[0].key}>
+                    <li>
                         <Link href={links[0].href} className="navlink audioMenuMain">
                             {links[0].name}
                         </Link>

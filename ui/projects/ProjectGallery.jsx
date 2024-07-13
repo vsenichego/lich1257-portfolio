@@ -23,11 +23,11 @@ const ProjectGallery = ({ project, closeGallery, language, toggleLanguage }) => 
                     {language === 'en' ? 'ru' : 'en'}
                 </button>
                 <h2 className="text-white text-4xl mb-4 mt-4">{project.title}</h2>
-                <p className="text-white text-2xl mb-4">
+                <p className="text-white text-2xl mb-4 overflow-y-auto">
                     {language === 'en' ? project.textEn : project.textRu}
                 </p>
             </div>
-            <div className="relative w-2/3 bg-black p-4 overflow-auto border">
+            <div className="relative w-2/3 bg-black p-4 overflow-y-auto border">
                 <button
                     className="absolute top-2 right-2 text-white text-2xl rounded border"
                     onClick={closeGallery}

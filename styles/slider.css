@@ -1,0 +1,21 @@
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid rgb(255, 0, 0); */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1rem; */
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.project-card {
+    border: 1px solid rgb(255, 0, 0);
+}
