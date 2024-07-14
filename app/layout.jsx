@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import  '@/styles/layout.css'
-import { freepixel } from '@/lib/fonts'
+import { freepixel } from '@/ui/fonts'
 
 export const metadata = {
   title: "LICH 1257",

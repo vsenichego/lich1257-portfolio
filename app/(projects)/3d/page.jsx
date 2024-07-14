@@ -7,7 +7,7 @@ const ThreeD = () => {
 
     return (
         <>
-            <header className="absolute text-[40px] p-4 z-10">
+            <header className="absolute p-4 z-10">
                 <Logo />
             </header>
             <main className="relative w-full m-auto">

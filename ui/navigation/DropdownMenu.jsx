@@ -19,14 +19,14 @@ export default function DropdownMenu({ linkName, links, isOpen, onToggle, target
                         updatedTexts[index] = newText;
                         return updatedTexts;
                     });
-                }, 60);
+                }, 20);
             });
         }
     }, [isOpen, links]);
 
     return (
         <li className="ml-[30px]">
-            <button className=" navlink audioMenuMain" onClick={onToggle}>
+            <button className="audioMenuMain hover:text-[#00ff00]" onClick={onToggle}>
                 {linkName}
             </button>
             {isOpen && (
@@ -38,7 +38,7 @@ export default function DropdownMenu({ linkName, links, isOpen, onToggle, target
                                 href={link.href}
                                 target={targetBlank ? "_blank" : "_self"}
                                 rel={targetBlank ? "noopener noreferrer" : ""}
-                                className="navlink-cat audioMenuCat"
+                                className="audioMenuCat hover:text-[#c037df]"
                             >
                                 <h3>{displayedTexts[index]}</h3>
                             </Link>

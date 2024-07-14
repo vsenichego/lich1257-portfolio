@@ -1,21 +1,22 @@
 .swiper-container {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     /* border: 1px solid rgb(255, 0, 0); */
-    position: relative;
-    display: flex;
-    flex-direction: column;
 }
 
 .swiper-slide {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    height: fit-content;
+    margin: auto;
     /* padding: 1rem; */
     border: 1px solid rgb(255, 255, 255);
 }
 
 .project-card {
-    border: 1px solid rgb(255, 0, 0);
+    width: 100%;
+    /* border: 1px solid rgb(255, 0, 0); */
+    /* -webkit-box-shadow: -4px 7px 14px 11px rgba(255,255,255,0.86); */
+    /* box-shadow: -25px 10px 16px 5px rgba(255, 255, 255, 0.35); */
+    box-shadow: 0 60px 80px rgba(0,0,0,0.60), 0 45px 26px rgba(0,0,0,0.14);
 }

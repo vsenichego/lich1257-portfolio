@@ -19,7 +19,7 @@ export default function MainNavLinks() {
             <nav>
                 <ul className="flex flex-row mr-[100px] mt-[10px] text-[35px]">
                     <li>
-                        <Link href={links[0].href} className="navlink audioMenuMain">
+                        <Link href={links[0].href} className="audioMenuMain hover:text-[#00ff00]">
                             {links[0].name}
                         </Link>
                     </li>

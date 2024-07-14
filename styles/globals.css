@@ -8,9 +8,8 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -27,7 +26,6 @@
   background: #555;
 }
 
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -43,16 +41,4 @@ body {
   color: rgb(var(--foreground-rgb));
   background: url('../public/assets/bg.png') no-repeat center center fixed;
   background-size: cover;
-}
-
-.navlink:hover {
-  color: #00ff00;
-}
-
-.navlink-cat:hover {
-  color: rgb(192, 55, 223);
-}
-
-.mainNavItem {
-  margin-left: 30px;
 }
