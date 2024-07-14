@@ -42,3 +42,40 @@ body {
   background: url('../public/assets/bg.png') no-repeat center center fixed;
   background-size: cover;
 }
+
+
+/* Debug Apative
+  background-color: #555;
+/* sm */
+/* @media only screen and (min-width: 640px) {
+  body {
+    background-color: #29fd2f;
+  }
+} */
+
+/* lg */
+/* @media only screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    background-color: #cded14;
+  }
+} */
+
+/* xl */
+/* @media only screen and (min-width: 1024px) and (max-width: 1280px) {
+  body {
+    background-color: #1f23aa;
+  }
+} */
+
+/* 2xl */
+/* @media only screen and (min-width: 1280px) and (max-width:1536px ) {
+  body {
+    background-color: #e01ab5;
+  }
+} */
+
+/* @media only screen and (min-width: 1536px) {
+  body {
+    background-color: #0fd4ad;
+  }
+} */

@@ -16,8 +16,8 @@ export default function MainNavLinks() {
     return (
         <>
             <AudioMenu />
-            <nav>
-                <ul className="flex flex-row mr-[100px] mt-[10px] text-[35px]">
+            <nav className="relative w-full text-xl sm:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+                <ul className="flex flex-row justify-center md:justify-start w-full mt-1.5 md:mt-3.5 py-1.5 md:first:pl-3.5 border-y border-white">
                     <li>
                         <Link href={links[0].href} className="audioMenuMain hover:text-[#00ff00]">
                             {links[0].name}

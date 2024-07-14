@@ -54,3 +54,7 @@ const ProjectGallery = ({ project, closeGallery, language, toggleLanguage }) => 
     );
 };
 export default ProjectGallery;
+
+
+{/* <div class="hidden md:block">Visible on medium screens and up</div> */}
+{/* <img src="photo.jpg" class="w-full h-auto object-cover" alt="Responsive Image"> */}

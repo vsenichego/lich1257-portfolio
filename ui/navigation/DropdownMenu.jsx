@@ -5,18 +5,18 @@ import AudioMenu from '@/ui/navigation/AudioMenu';
 import { randomTextAppearEffect } from '@/lib/randomTextAppearEffect'
 
 export default function DropdownMenu({ linkName, links, isOpen, onToggle, targetBlank }) {
-    const [displayedTexts, setDisplayedTexts] = useState(Array(links.length).fill(""));
+    const [categoryName, setCategoryName] = useState(Array(links.length).fill(""));
 
     useEffect(() => {
         if (isOpen) {
-            const newDisplayedTexts = Array(links.length).fill("");
-            setDisplayedTexts(newDisplayedTexts);
+            const newCategoryName = Array(links.length).fill("");
+            setCategoryName(newCategoryName);
 
             links.forEach((link, index) => {
-                randomTextAppearEffect(link.name, (newText) => {
-                    setDisplayedTexts((prevTexts) => {
-                        const updatedTexts = [...prevTexts];
-                        updatedTexts[index] = newText;
+                randomTextAppearEffect(link.name, (newLink) => {
+                    setCategoryName((prevLink) => {
+                        const updatedTexts = [...prevLink];
+                        updatedTexts[index] = newLink;
                         return updatedTexts;
                     });
                 }, 20);
@@ -25,22 +25,22 @@ export default function DropdownMenu({ linkName, links, isOpen, onToggle, target
     }, [isOpen, links]);
 
     return (
-        <li className="ml-[30px]">
+        <li className="ml-4">
             <button className="audioMenuMain hover:text-[#00ff00]" onClick={onToggle}>
                 {linkName}
             </button>
             {isOpen && (
-                <ul className="text-[25px] absolute">
+                <ul className="mt-1.5 text-lg lg:text-2xl xl:text-3xl absolute">
                     <AudioMenu />
                     {links.map((link, index) => (
-                        <li key={link.key}>
+                        <li key={link.key} className="px-1.5 border first:border-t-0 border-b-0 last:border-b border-white">
                             <Link
                                 href={link.href}
                                 target={targetBlank ? "_blank" : "_self"}
                                 rel={targetBlank ? "noopener noreferrer" : ""}
-                                className="audioMenuCat hover:text-[#c037df]"
+                                className="audioMenuCat hover:text-[#00ff00] "
                             >
-                                <h3>{displayedTexts[index]}</h3>
+                                <h3>{categoryName[index]}</h3>
                             </Link>
                         </li>
                     ))}

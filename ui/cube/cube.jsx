@@ -1,8 +1,7 @@
+
 // this code is partially taken from the website https://blog.olivierlarose.com/tutorials/3d-cube
 // adapted for the current project
-
 'use client';
-
 import React, { useEffect, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
@@ -11,7 +10,7 @@ import { motion } from 'framer-motion-3d';
 import * as THREE from 'three';
 // import { TextureLoader } from 'three/src/loaders/TextureLoader'; Почитать про Лоадеры и подумать нужны ли они здесь
 
-export default function page() {
+export default function Page() {
 
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -22,8 +21,8 @@ export default function page() {
     const smoothProgress = useSpring(progress, { damping: 20 });
 
     return (
-        <div ref={container}>
-            <div className="h-screen">
+        <div ref={container} className="flex justify-center items-center w-full h-full">
+            <div className="w-full h-full">
                 <Canvas>
                     <OrbitControls enableZoom={true} enablePan={false} />
                     <ambientLight intensity={2} />
@@ -48,7 +47,6 @@ function Cube({ progress }) {
         x: useSpring(useMotionValue(0), options),
         y: useSpring(useMotionValue(0), options)
     }
-
 
     useFrame((state, delta) => {
         if (!isHovered) {
@@ -136,20 +134,11 @@ function Cube({ progress }) {
     }
 
     return (
-        // <motion.mesh ref={mesh} rotation-y={progress} rotation-x={progress}>
-        //     {/* args: width, height, depth */}
-        //     <boxGeometry args={[3, 3, 3]} />
-        //     {/* attach - use different textures for different faces */}
-        //     <meshStandardMaterial map={texture_1} attach="material-0" />
-        //     <meshStandardMaterial map={texture_1} attach="material-1" />
-        //     <meshStandardMaterial map={texture_1} attach="material-2" />
-        //     <meshStandardMaterial map={texture_1} attach="material-3" />
-        //     <meshStandardMaterial map={texture_1} attach="material-4" />
-        //     <meshStandardMaterial map={texture_1} attach="material-5" />
-        // </motion.mesh>
         <>
             <motion.mesh ref={mesh} rotation-y={progress} rotation-x={progress}>
+                {/* args: width, height, depth */}
                 <boxGeometry args={[3, 3, 3]} />
+                {/* attach - use different textures for different faces */}
                 <meshStandardMaterial map={texture_1} attach="material-0" />
                 <meshStandardMaterial map={texture_1} attach="material-1" />
                 <meshStandardMaterial map={texture_1} attach="material-2" />
@@ -157,6 +146,7 @@ function Cube({ progress }) {
                 <meshStandardMaterial map={texture_1} attach="material-4" />
                 <meshStandardMaterial map={texture_1} attach="material-5" />
             </motion.mesh>
+
             {sides.map((side, idx) => (
                 <mesh
                     key={idx}
