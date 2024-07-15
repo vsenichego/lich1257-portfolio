@@ -11,9 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={freepixel.className}>{children}
-        <video autoPlay muted loop className="backgroundVideo">
-          <source src="/assets/bg2.mp4" type="video/mp4" />
-        </video>
+        {/* <video autoPlay muted loop className="backgroundVideo">
+          <source src="/assets/background.mp4" type="video/mp4" />
+        </video> */}
       </body>
     </html>
   );

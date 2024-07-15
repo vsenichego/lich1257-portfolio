@@ -10,6 +10,35 @@ const ProjectSlider = ({ projects }) => {
     const [language, setLanguage] = useState('en');
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
     const swiperRef = useRef(null);
+    const [hoverState, setHoverState] = useState({
+        isHovering: false,
+        pointerPosition: { x: 0, y: 0 },
+        hoveredProject: null
+    });
+
+    const handlePointerMove = (e, project) => {
+        setHoverState((prevState) => ({
+            ...prevState,
+            pointerPosition: { x: e.clientX, y: e.clientY },
+            hoveredProject: project
+        }));
+    };
+
+    const handlePointerEnter = (project) => {
+        setHoverState((prevState) => ({
+            ...prevState,
+            isHovering: true,
+            hoveredProject: project
+        }));
+    };
+
+    const handlePointerLeave = () => {
+        setHoverState((prevState) => ({
+            ...prevState,
+            isHovering: false,
+            hoveredProject: null
+        }));
+    };
 
     const openGallery = (index) => {
         setIsGalleryOpen(true);
@@ -38,13 +67,19 @@ const ProjectSlider = ({ projects }) => {
                                 backgroundImage: `url(${project.img})`,
                             }}
                             onClick={() => openGallery(index)}
+                            onPointerEnter={() => handlePointerEnter(project)}
+                            onPointerLeave={handlePointerLeave}
+                            onPointerMove={(e) => handlePointerMove(e, project)}
                         >
-                            <h2 className="absolute top-2 left-2 h-fit bg-black bg-opacity-40 p-2 rounded z-10">{project.title}</h2>
-                            <div className="absolute inset-0 w-inherit h-inherit bg-white opacity-0 group-hover:opacity-35 transition duration-500 ease-in-out"></div>
+                            <div className="card-hover"></div>
                         </div>
                     </swiper-slide>
                 ))}
             </swiper-container>
+            {hoverState.isHovering && hoverState.hoveredProject && (
+                <h2 className="sticky-heading fixed pointer-events-none"
+                    style={{ top: hoverState.pointerPosition.y, left: hoverState.pointerPosition.x }}>{hoverState.hoveredProject.title}</h2>
+            )}
             {isGalleryOpen && selectedProjectIndex !== null && (
                 <ProjectGallery
                     project={projects[selectedProjectIndex]}
@@ -53,6 +88,7 @@ const ProjectSlider = ({ projects }) => {
                     toggleLanguage={toggleLanguage}
                 />
             )}
+
         </>
     );
 };

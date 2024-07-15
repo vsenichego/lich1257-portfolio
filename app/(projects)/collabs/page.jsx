@@ -14,7 +14,10 @@ const Collabs = () => {
                 <ProjectSlider projects={projectsList} />
             </main>
             <footer className="absolute bottom-3 left-10 text-[40px] uppercase z-10">
-                <h1># 3d</h1>
+                <div className="flex flex-row items-center">
+                    <span className="pr-1.5">/</span>
+                    <h1>collaborations</h1>
+                </div>
             </footer>
         </>
     );

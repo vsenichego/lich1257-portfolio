@@ -10,7 +10,7 @@ const Installations = () => {
             <Logo />
             <ProjectSlider projects={projectsList} />
             <div className="absolute bottom-3 left-10 text-[40px] uppercase">
-                <h1># installations</h1>
+                <h1>/installations</h1>
             </div>
         </>
     );

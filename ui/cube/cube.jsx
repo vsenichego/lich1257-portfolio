@@ -11,7 +11,6 @@ import * as THREE from 'three';
 // import { TextureLoader } from 'three/src/loaders/TextureLoader'; Почитать про Лоадеры и подумать нужны ли они здесь
 
 export default function Page() {
-
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
@@ -35,7 +34,6 @@ export default function Page() {
 }
 
 function Cube({ progress }) {
-
     const mesh = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
 

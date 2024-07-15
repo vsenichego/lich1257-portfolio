@@ -2,7 +2,6 @@ import card from '/public/assets/card-large.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
 
-
 export default function About() {
     return (
         <>
@@ -34,30 +33,28 @@ export default function About() {
                     </div>
                     <div className="">
                         <div className="flex flex-nowrap items-end text-black text-[25px]">
-                            <p className="relative basis-1/2 mt-[650px] left-[310px] text-[30px] border border-white">documents:</p>
-                            <p className="basis-1/4 mr-[105px] mb-[70px] font-bold text-[22px] border border-white">hello!
+                            <p className="relative basis-1/2 mt-[650px] left-[310px] text-[30px]  ">documents:</p>
+                            <p className="basis-1/4 mr-[105px] mb-[92px] font-bold text-[21px]  ">hello!<br />
                                 my name is sofy lich
-                                and i would glad
+                                and i would glad<br />
                                 to work with you!<br />
                                 i am a media artist,
                                 and i like to do
-                                all kind of multimedia
+                                all kind<br /> of multimedia
                                 stuff.<br />
-                                the sphere want us
+                                the sphere want us<br />
                                 to know a lot,
                                 so i have skills
                                 in many visual
                                 directions.
                                 please welcome!</p>
-                            <p className="basis-1/4 mr-[65px] text-[20px] mb-[50px] font-bold border border-white">graduated from federal state
-                                budgetary educational institution
-                                of higher education «stroganov russian state
+                            <p className="basis-1/4 mr-[65px] text-[20px] mb-[140px] font-bold ">graduated from «stroganov russian state
                                 university of design and applied arts
                                 (book illustration graphics)<br />
                                 graduated from moscow music school
                                 (stage lighting design)<br />
-                                working as freelancer and multimedia developer
-                                (in gutor production)</p>
+                                working as freelancer<br />and multimedia developer
+                                (in <a href='https://www.gutor.pro/' target="_blank">gutor production</a>)</p>
                         </div>
                     </div>
                 </div>

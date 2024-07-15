@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MediaModal from './MediaModal';
 import MediaViewer from './MediaViewer';
 
