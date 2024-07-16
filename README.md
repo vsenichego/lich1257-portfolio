@@ -1,4 +1,4 @@
-It's a website portfolio for media-artist.
+Website portfolio for multimedia-artist.
 
 Links to her:
 - https://www.behance.net/lich1257_12
