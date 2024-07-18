@@ -1,8 +1,9 @@
-It's a website portfolio for media-artist.
+Website portfolio for multimedia-artist
 
-Links to her:
+Links
 - https://www.behance.net/lich1257_12
 - https://www.instagram.com/lich_b1257_12/
+- https://www.instagram.com/def.entropy?igsh=MW51MWcydGpycHQ1aw==
 
 The site will be available at [lich1257.com](http://lich1257.com)
 
