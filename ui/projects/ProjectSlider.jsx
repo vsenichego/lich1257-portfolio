@@ -4,7 +4,6 @@ import useSwiperUtils from '@/lib/useSwiperUtils';
 import ProjectGallery from './ProjectGallery';
 import '@/styles/slider.css';
 
-
 const ProjectSlider = ({ projects }) => {
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
     const [language, setLanguage] = useState('en');
