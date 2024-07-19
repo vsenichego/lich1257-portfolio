@@ -34,15 +34,15 @@ const ProjectGallery = ({ project, closeGallery, language, toggleLanguage }) => 
                 >
                     ✕
                 </button>
-                <div className="grid grid-cols-2 gap-4 mt-4 px-4 pt-10 border overflow-y-auto">
+                <div className="grid grid-cols-2 gap-4 mt-4 px-4 pt-10 border overflow-y-auto rounded">
                     {project.media.map((mediaItem, index) => (
                         <div
                             key={index}
-                            className="relative w-full h-fit mb-4 border cursor-pointer group"
+                            className="relative w-full h-fit mb-4 border cursor-pointer rounded"
                             onClick={() => handleMediaClick(mediaItem.src, mediaItem.type)}
                         >
                             <MediaViewer type={mediaItem.type} src={mediaItem.src} />
-                            <div className="absolute inset-0 w-inherit h-inherit bg-white opacity-0 group-hover:opacity-35 transition duration-500 ease-in-out"></div>
+                            <div className="absolute inset-0 w-inherit h-inherit"></div>
                         </div>
                     ))}
                 </div>
@@ -54,7 +54,3 @@ const ProjectGallery = ({ project, closeGallery, language, toggleLanguage }) => 
     );
 };
 export default ProjectGallery;
-
-
-{/* <div class="hidden md:block">Visible on medium screens and up</div> */}
-{/* <img src="photo.jpg" class="w-full h-auto object-cover" alt="Responsive Image"> */}

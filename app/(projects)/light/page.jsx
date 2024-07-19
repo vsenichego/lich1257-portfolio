@@ -1,4 +1,4 @@
-import projects from '@/lib/dataProjects.json'
+import projects from '@/lib/dataProjects.json';
 import ProjectSlider from '@/ui/projects/ProjectSlider';
 
 export const metadata = {

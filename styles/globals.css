@@ -38,8 +38,8 @@ body {
   width: 100vw;
   height: 100vh;
   color: rgb(var(--foreground-rgb));
-   background: url('../public/assets/bg.png') no-repeat center center fixed;
- background-size: cover;
+  background: url('../public/assets/bg.png') no-repeat center center fixed;
+  background-size: cover;
   background-color: #555;
 }
 
@@ -50,7 +50,7 @@ body {
   body {
     background-color: #29fd2f;
   }
-} 
+}
 
 /* lg */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -67,7 +67,7 @@ body {
 }
 
 /* 2xl */
-@media only screen and (min-width: 1280px) and (max-width:1536px ) {
+@media only screen and (min-width: 1280px) and (max-width:1536px) {
   body {
     background-color: #e01ab5;
   }

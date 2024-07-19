@@ -9,6 +9,7 @@ const Logo = () => {
                 width={90}
                 height={90}
                 alt="Logo picture"
+                style={{ width: 'auto', height: 'auto' }}
             />
         </Link>
     );
