@@ -1,11 +1,14 @@
 import "@/styles/globals.css";
 import '@/styles/layout.css'
 import { freepixel } from '@/ui/fonts'
-
+ 
 export const metadata = {
-  title: "LICH 1257",
-  description: "multimedia artist",
-};
+  title: {
+    template: 'lich 1257 / %s',
+    default: 'lich 1257',
+    description: "multimedia artist",
+  },
+}
 
 export default function RootLayout({ children }) {
   return (

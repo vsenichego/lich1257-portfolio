@@ -2,6 +2,11 @@ import card from '/public/assets/card-large.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
 
+export const metadata = {
+    title: "about",
+    description: "about page",
+}
+
 export default function About() {
     return (
         <>
