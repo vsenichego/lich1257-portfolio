@@ -1,6 +1,7 @@
 'use client'
-import Logo from '@/ui/navigation/Logo';
 import { usePathname } from 'next/navigation';
+import Logo from '@/ui/navigation/Logo';
+import { NavAbout, NavContact } from '@/ui/navigation/Navigation';
 
 const Layout = ({ children }) => {
     const heading = usePathname().slice(1)
@@ -8,7 +9,13 @@ const Layout = ({ children }) => {
     return (
         <>
             <header className="absolute p-4 z-10">
-                <Logo />
+                <nav className="relative w-full text-xl sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
+                    <ul>
+                        <Logo />
+                        <NavAbout />
+                        <NavContact />
+                    </ul>
+                </nav>
             </header>
             {children}
             <footer className="absolute bottom-3 left-10 text-[40px] uppercase z-10">
