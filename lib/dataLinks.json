@@ -29,6 +29,11 @@
             "name": "installations",
             "href": "/installations",
             "key": 6
+        },
+        {
+            "name": "art_pieces",
+            "href": "/art-pieces",
+            "key": 6
         }
     ],
     "contactLinks": [

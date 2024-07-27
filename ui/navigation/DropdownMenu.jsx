@@ -1,10 +1,10 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import AudioMenu from '@/ui/navigation/AudioMenu';
 import { randomTextAppearEffect } from '@/lib/randomTextAppearEffect'
 
 export default function DropdownMenu({ linkName, links, isOpen, onToggle, targetBlank }) {
+    const dropdownRef = useRef(null);
     const [categoryName, setCategoryName] = useState(Array(links.length).fill(""));
 
     useEffect(() => {
@@ -24,8 +24,30 @@ export default function DropdownMenu({ linkName, links, isOpen, onToggle, target
         }
     }, [isOpen, links]);
 
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                onToggle(); // Close the dropdown
+            }
+        }
+
+        if (isOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isOpen, onToggle]);
+
+    const handleLinkClick = () => {
+        onToggle(); // Close the dropdown when a link is clicked
+    };
+
     return (
-        <li className="ml-4">
+        <li className="ml-4" ref={dropdownRef}>
             <button className="audioMenuMain hover:text-[#00ff00]" onClick={onToggle}>
                 {linkName}
             </button>
@@ -38,7 +60,8 @@ export default function DropdownMenu({ linkName, links, isOpen, onToggle, target
                                 href={link.href}
                                 target={targetBlank ? "_blank" : "_self"}
                                 rel={targetBlank ? "noopener noreferrer" : ""}
-                                className="audioMenuCat hover:text-[#00ff00] "
+                                className="audioMenuCat hover:text-[#00ff00]"
+                                onClick={handleLinkClick}
                             >
                                 <h3>{categoryName[index]}</h3>
                             </Link>
