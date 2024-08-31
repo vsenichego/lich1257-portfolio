@@ -1,5 +1,6 @@
 import projects from '@/lib/dataProjects.json';
 import ProjectSlider from '@/ui/projects/ProjectSlider';
+import Layout from '@/app/(projects)/layout';
 
 export const metadata = {
     title: "generative",
@@ -8,11 +9,14 @@ export const metadata = {
 
 const Generative = () => {
     const projectsList = projects.generative;
+    const heading = metadata.title
 
     return (
-        <main className="relative w-full m-auto">
-            <ProjectSlider projects={projectsList} />
-        </main>
+        <Layout pageHeading={heading}>
+            <main className="relative w-full m-auto">
+                <ProjectSlider projects={projectsList} />
+            </main>
+        </Layout>
     );
 }
 

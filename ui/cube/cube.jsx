@@ -8,6 +8,7 @@ import { OrbitControls } from '@react-three/drei';
 import { useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
 import { motion } from 'framer-motion-3d';
 import * as THREE from 'three';
+
 // import { TextureLoader } from 'three/src/loaders/TextureLoader'; Почитать про Лоадеры и подумать нужны ли они здесь
 
 export default function Page() {
@@ -108,28 +109,28 @@ function Cube({ progress }) {
     // const texture_6 = useLoader(TextureLoader, "/cube/test.jpg")
 
     // Positions and rotations of the sides
-    const sides = [
-        { position: [0, 0, 1.5], rotation: [0, 0, 0] }, // Front
-        { position: [0, 0, -1.5], rotation: [0, Math.PI, 0] }, // Back
-        { position: [0, 1.5, 0], rotation: [-Math.PI / 2, 0, 0] }, // Top
-        { position: [0, -1.5, 0], rotation: [Math.PI / 2, 0, 0] }, // Bottom
-        { position: [1.5, 0, 0], rotation: [0, Math.PI / 2, 0] }, // Right
-        { position: [-1.5, 0, 0], rotation: [0, -Math.PI / 2, 0] }, // Left
-    ];
+    // const sides = [
+    //     { position: [0, 0, 1.5], rotation: [0, 0, 0] }, // Front
+    //     { position: [0, 0, -1.5], rotation: [0, Math.PI, 0] }, // Back
+    //     { position: [0, 1.5, 0], rotation: [-Math.PI / 2, 0, 0] }, // Top
+    //     { position: [0, -1.5, 0], rotation: [Math.PI / 2, 0, 0] }, // Bottom
+    //     { position: [1.5, 0, 0], rotation: [0, Math.PI / 2, 0] }, // Right
+    //     { position: [-1.5, 0, 0], rotation: [0, -Math.PI / 2, 0] }, // Left
+    // ];
 
-    function handleHoverOverCube(e) {
-        setIsHovered(true);
-        e.object.material.opacity = 0.2; // Change opacity to make it visible
-    }
+    // function handleHoverOverCube(e) {
+    //     setIsHovered(true);
+    //     e.object.material.opacity = 0.2; // Change opacity to make it visible
+    // }
 
-    function handleHoverOutCube(e) {
-        setIsHovered(false);
-        e.object.material.opacity = 0; // Make it transparent
-    }
+    // function handleHoverOutCube(e) {
+    //     setIsHovered(false);
+    //     e.object.material.opacity = 0; // Make it transparent
+    // }
 
-    function handleClickOnSide(idx) {
-        alert(`Clicked side ${idx}`)
-    }
+    // function handleClickOnSide(idx) {
+    //     alert(`Clicked side ${idx}`)
+    // }
 
     return (
         <>
@@ -145,18 +146,21 @@ function Cube({ progress }) {
                 <meshStandardMaterial map={texture_1} attach="material-5" />
             </motion.mesh>
 
-            {sides.map((side, idx) => (
-                <mesh
-                    key={idx}
-                    position={side.position}
-                    rotation={side.rotation}
-                    onPointerOver={handleHoverOverCube}
-                    onPointerOut={handleHoverOutCube}
-                    onClick={() => handleClickOnSide(idx)}>
-                    <planeGeometry args={[3, 3]} />
-                    <meshBasicMaterial color="blue" transparent opacity={0} />
-                </mesh>
-            ))}
+
         </>
     )
 }
+
+
+// {sides.map((side, idx) => (
+//     <mesh
+//         key={idx}
+//         position={side.position}
+//         rotation={side.rotation}
+//         onPointerOver={handleHoverOverCube}
+//         onPointerOut={handleHoverOutCube}
+//         onClick={() => handleClickOnSide(idx)}>
+//         <planeGeometry args={[3, 3]} />
+//         <meshBasicMaterial color="blue" transparent opacity={0} />
+//     </mesh>
+// ))}

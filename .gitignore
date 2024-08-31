@@ -7,7 +7,9 @@
 #
 .eslintrc.json
 .env
+.env.local
 .vscode
+.gitignore
 
 # production
 /build
@@ -16,7 +18,8 @@
 /public
 
 # drafts
-/ui/projects/swiper.jsx
 /ui/skeletons.jsx
 /lib/data.js
-/app/data
+/data/api.js
+/data/loaders.js
+/ui/navigation/MainNavigationServer.jsx

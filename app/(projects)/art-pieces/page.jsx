@@ -1,5 +1,6 @@
 import projects from '@/lib/dataProjects.json';
 import ProjectSlider from '@/ui/projects/ProjectSlider';
+import Layout from '@/app/(projects)/layout';
 
 export const metadata = {
     title: "art pieces",
@@ -8,11 +9,14 @@ export const metadata = {
 
 const ArtPieces = () => {
     const projectsList = projects.artPieces;
+    const heading = metadata.title
 
     return (
-        <main className="relative w-full m-auto">
-            <ProjectSlider projects={projectsList} />
-        </main>
+        <Layout heading={heading}>
+            <main className="relative w-full m-auto">
+                <ProjectSlider projects={projectsList} />
+            </main>
+        </Layout>
     );
 }
 
