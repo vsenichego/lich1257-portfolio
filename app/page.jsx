@@ -1,4 +1,3 @@
-'use client'
 import Cube from '@/ui/cube/cube'
 
 export default function Home() {
@@ -8,3 +7,5 @@ export default function Home() {
     </div>
   );
 }
+
+//fetch global settings and navigation data in getStaticProps for layout components.

@@ -24,8 +24,8 @@ const NavContact = ({ contacts }) => {
 
     const contactLinks = contacts.map(contact => ({
         key: contact.id,
-        name: contact.attributes.contactTitle,
-        href: contact.attributes.contactUrl,
+        name: contact.contactName,
+        href: contact.contactUrl,
     }));
 
     return (
@@ -51,8 +51,8 @@ const NavCategory = ({ categories }) => {
 
     const categoryLinks = categories.map(category => ({
         key: category.id,
-        name: category.attributes.categoryName,
-        href: category.attributes.categoryUrl,
+        name: category.categoryName,
+        href: category.categoryUrl,
     }));
 
     return (

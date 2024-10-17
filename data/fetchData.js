@@ -1,5 +1,5 @@
 export const fetchContacts = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/contacts`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contacts?sort=contactName`);
     if (!res.ok) {
         throw new Error('Failed to fetch contacts');
     }
@@ -8,7 +8,7 @@ export const fetchContacts = async () => {
 };
 
 export const fetchCategories = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/categories`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/categories?sort=categoryName`);
     if (!res.ok) {
         throw new Error('Failed to fetch categories');
     }
