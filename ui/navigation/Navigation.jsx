@@ -24,8 +24,9 @@ const NavContact = ({ contacts }) => {
 
     const contactLinks = contacts.map(contact => ({
         key: contact.id,
-        name: contact.contactName,
-        href: contact.contactUrl,
+        name: contact.text,
+        href: contact.URL,
+        target: contact.target
     }));
 
     return (
@@ -35,7 +36,7 @@ const NavContact = ({ contacts }) => {
                 links={contactLinks}
                 isOpen={openDropdown === 'contact'}
                 onToggle={() => handleToggle('contact')}
-                targetBlank={true}
+                targetBlank={contactLinks}
             />
         </>
     )
@@ -51,8 +52,8 @@ const NavCategory = ({ categories }) => {
 
     const categoryLinks = categories.map(category => ({
         key: category.id,
-        name: category.categoryName,
-        href: category.categoryUrl,
+        name: category.text,
+        href: category.URL,
     }));
 
     return (

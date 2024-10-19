@@ -9,7 +9,6 @@
 .env
 .env.local
 .vscode
-.gitignore
 
 # production
 /build
@@ -18,8 +17,4 @@
 /public
 
 # drafts
-/ui/skeletons.jsx
-/lib/data.js
-/data/api.js
-/data/loaders.js
-/ui/navigation/MainNavigationServer.jsx
+/drafts_REDACT
